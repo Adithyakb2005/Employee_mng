@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 
-const AddDetails=()=>{
+ const AddDetails=()=>{
     const[name,addName]=useState('');
     const [address,addAddress]=useState('');
     const [position,addPos]=useState('');
@@ -11,9 +11,10 @@ const AddDetails=()=>{
     const [email,addEmail]=useState('');
     const [empid,addEmpid]=useState('');
 
+
     const handelSubmit =(e)=>{
         console.log('add form');
-       
+        
         e.preventDefault();
         axios.post('https://aiswarya2325.pythonanywhere.com/employemanagement/employees/',{name,address,position,salary,experiance,phone,email,empid})
         .then (response=>{
@@ -22,10 +23,10 @@ const AddDetails=()=>{
             addAddress('');
             addPos('');
             addSalry('');
-            addExpr('')
-            addPhone('')
+            addExpr('');
+            addPhone('');
             addEmail('');
-            addEmpid('')
+            addEmpid('');
         })
         .catch(error=> console.log(error));
     }
@@ -35,7 +36,7 @@ const AddDetails=()=>{
                 <h2 className='text-info'><u>Add Details</u></h2>
                 <div>
                     <label className="text-dark">Name</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="text"
                         value={name}
@@ -52,7 +53,7 @@ const AddDetails=()=>{
                 </div>
                 <div>
                     <label className="text-dark">Position</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="text"
                         value={position}
@@ -61,7 +62,7 @@ const AddDetails=()=>{
                 </div>
                 <div>
                     <label className="text-dark">Salary</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="number"
                         value={salary}
@@ -70,16 +71,17 @@ const AddDetails=()=>{
                 </div>
                 <div>
                     <label className="text-dark">Experience</label>
-                    <input
+                    <input 
                         className="form-control"
-                        type="text"
+                        type="number"
                         value={experiance}
                         onChange={(e)=> addExpr(e.target.value)}
+                        
                     />
                 </div>
                 <div>
                     <label className="text-dark">Phone No.</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="number"
                         value={phone}
@@ -88,7 +90,7 @@ const AddDetails=()=>{
                 </div>
                 <div>
                     <label className="text-dark">Email</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="email"
                         value={email}
@@ -97,7 +99,7 @@ const AddDetails=()=>{
                 </div>
                 <div>
                     <label className="text-dark">EmpId</label>
-                    <input
+                    <input 
                         className="form-control"
                         type="number"
                         value={empid}
@@ -109,5 +111,5 @@ const AddDetails=()=>{
             </form>
         </div>
      )
-}
-export default AddDetails
+ }
+ export default AddDetails
